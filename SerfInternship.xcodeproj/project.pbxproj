@@ -11,6 +11,7 @@
 		117C6E472996990700D138E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E462996990700D138E6 /* BaseViewController.swift */; };
 		117C6E4B299699D500D138E6 /* MainRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E4A299699D500D138E6 /* MainRootView.swift */; };
 		117C6E4F29969B8800D138E6 /* UIView+addView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E4E29969B8800D138E6 /* UIView+addView.swift */; };
+		117C6E5229969C9600D138E6 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E5129969C9600D138E6 /* Tab.swift */; };
 		11A665A129967099009ED5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A665A029967099009ED5FB /* AppDelegate.swift */; };
 		11A665AA2996709A009ED5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A665A92996709A009ED5FB /* Assets.xcassets */; };
 		11A665AD2996709A009ED5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A665AB2996709A009ED5FB /* LaunchScreen.storyboard */; };
@@ -35,6 +36,7 @@
 		117C6E462996990700D138E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		117C6E4A299699D500D138E6 /* MainRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRootView.swift; sourceTree = "<group>"; };
 		117C6E4E29969B8800D138E6 /* UIView+addView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addView.swift"; sourceTree = "<group>"; };
+		117C6E5129969C9600D138E6 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		11A6659D29967099009ED5FB /* SerfInternship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SerfInternship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A665A029967099009ED5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A665A92996709A009ED5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		117C6E5029969C8400D138E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				117C6E5129969C9600D138E6 /* Tab.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		11862FD02996808C00AFB276 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +209,7 @@
 		6B29C3EBCF17BC020F8013E4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				117C6E5029969C8400D138E6 /* Model */,
 				80D8A058FB588F0FB11BE56F /* Configurator */,
 				B7A30B198A7977332C30A4C5 /* Router */,
 				83ACCD43CA70E6FEC26D240D /* Presenter */,
@@ -373,6 +384,7 @@
 				11A665DF299677B6009ED5FB /* Assets.swift in Sources */,
 				117C6E4B299699D500D138E6 /* MainRootView.swift in Sources */,
 				11A665A129967099009ED5FB /* AppDelegate.swift in Sources */,
+				117C6E5229969C9600D138E6 /* Tab.swift in Sources */,
 				F6F4594E3F430D7B4D249E1A /* MainModuleConfigurator.swift in Sources */,
 				117C6E472996990700D138E6 /* BaseViewController.swift in Sources */,
 				117C6E4F29969B8800D138E6 /* UIView+addView.swift in Sources */,
