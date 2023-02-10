@@ -15,19 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
+        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
         setRootScreen()
         return true
     }
     
 }
 
-// MARK: - Private Methods
+// MARK: - Private methods
 
 private extension AppDelegate {
     
     func setRootScreen() {
-        let rootViewController = ViewController()
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        let configurator = MainModuleConfigurator()
+        let navigationController = UINavigationController(rootViewController: configurator.configure())
+        
+        window?.rootViewController = navigationController
     }
     
 }
