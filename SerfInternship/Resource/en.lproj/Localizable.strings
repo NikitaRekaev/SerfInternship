@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  SerfInternship
+
+  Created by Nikita Rekaev on 10.02.2023.
+  
+*/
+
+// Label
+"label.title" = "Стажировка в Surf";
+"label.offers" = "Хочешь к нам?";
+"label.subtitle.top" = "Работай над реальными задачами под руководством\n опытного наставника и получи возможность\n стать частью команды мечты.";
+"label.subtitle.middle" = "Получай стипендию, выстраивай удобный график,\n работай на современном железе.";
+
+// Button
+"button.send" = "Отправить заявку";
+
+// Tabs
+"tab.ios" = "iOS";
+"tab.android" = "Android";
+"tab.design" = "Design";
+"tab.flutter" = "Flutter";
+"tab.frontend" = "Frontend";
+"tab.backend" = "Backend";
+"tab.analytists" = "Analytists";
+"tab.qa" = "QA";
+"tab.pm" = "PM";
+"tab.hr" = "HR";
