@@ -3,7 +3,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController, MainViewInput {
+final class MainViewController: BaseViewController<MainRootView>, MainViewInput {
 
     // MARK: - Properties
 
@@ -13,7 +13,7 @@ final class MainViewController: UIViewController, MainViewInput {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        
     }
 
     // MARK: - MainViewInput
