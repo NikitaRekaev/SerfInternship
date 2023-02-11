@@ -19,6 +19,13 @@ final class ContentRootView: UIView {
         setViewPosition()
     }
     
+    // MARK: - Iternal method
+    
+    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        topView.setDelegate(delegate: delegate, dataSource: dataSource)
+        middleView.setDelegate(delegate: delegate, dataSource: dataSource)
+    }
+    
 }
 
 // MARK: - Private methods
@@ -36,17 +43,17 @@ private extension ContentRootView {
             topView.topAnchor.constraint(equalTo: topAnchor),
             topView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            topView.heightAnchor.constraint(equalToConstant: .screenHeight / 4),
             
             middleView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             middleView.leadingAnchor.constraint(equalTo: leadingAnchor),
             middleView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            middleView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            middleView.heightAnchor.constraint(equalToConstant: .screenHeight / 4),
             
             bottomView.leadingAnchor.constraint(equalTo: leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4)
+            bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            bottomView.heightAnchor.constraint(equalToConstant: .screenHeight / 4)
         ])
     }
 }

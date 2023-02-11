@@ -9,14 +9,32 @@ final class TopView: UIView {
     
     private let titleLabel = TopView.makeLabel(text: Localizable.Label.title)
     private let textView = TopView.makeTextView(text: Localizable.Label.Subtitle.top)
-//    private let collection = TopView.makeCollection()
+    private let collection = TopView.makeCollection(cell: CollectionViewCell.self)
+    
+    // MARK: - Initialization
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        
+        setViewAppearance()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .yellow
         setViewPosition()
+    }
+    
+    // MARK: - Internal methods
+    
+    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+        collection.delegate = delegate
+        collection.dataSource = dataSource
     }
     
 }
@@ -41,8 +59,18 @@ private extension TopView {
         return textView
     }
     
-    static func makeCollection() -> UICollectionView {
-        let collection = UICollectionView()
+    static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collection.backgroundColor = .none
+        collection.showsHorizontalScrollIndicator = false
+        collection.register(cell)
         return collection
     }
     
@@ -52,7 +80,12 @@ private extension TopView {
 
 private extension TopView {
     
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
     func setViewPosition() {
         
     }
+    
 }

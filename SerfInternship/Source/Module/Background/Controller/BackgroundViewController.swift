@@ -25,18 +25,20 @@ private extension BackgroundViewController {
     func presetSheet() {
         let smallId = UISheetPresentationController.Detent.Identifier("small")
         let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) { _ in
-            return self.view.frame.height / 3
+            return .screenHeight / 2
         }
         
         let middleId = UISheetPresentationController.Detent.Identifier("middle")
         let middleDetent = UISheetPresentationController.Detent.custom(identifier: middleId) { _ in
-            return self.view.frame.height / 1.5
+            return .screenHeight / 1.34
         }
         
         let largeId = UISheetPresentationController.Detent.Identifier("big")
         let largeDetent = UISheetPresentationController.Detent.custom(identifier: largeId) { _ in
-            return self.view.frame.height / 1.12
+            return .screenHeight
         }
+        
+        content?.isModalInPresentation = true
         
         if let sheet = content?.sheetPresentationController {
             sheet.detents = [smallDetent, middleDetent, largeDetent]

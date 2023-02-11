@@ -9,10 +9,21 @@ final class CollectionViewCell: UICollectionViewCell {
     
     private let label = CollectionViewCell.makeLabel()
     
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        
+        setViewApearance()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life cycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         setViewPosition()
     }
     
@@ -42,6 +53,11 @@ private extension CollectionViewCell {
 // MARK: - Private methods
 
 private extension CollectionViewCell {
+    
+    func setViewApearance() {
+        contentView.backgroundColor = .lightGray.withAlphaComponent(0.3)
+        contentView.layer.cornerRadius = 12
+    }
     
     func setViewPosition() {
         contentView.addView(label)

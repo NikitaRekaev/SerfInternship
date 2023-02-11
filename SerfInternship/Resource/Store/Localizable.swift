@@ -24,8 +24,8 @@ internal enum Localizable {
     internal static let title = Localizable.tr("Localizable", "label.title", fallback: "Стажировка в Surf")
     internal enum Subtitle {
       /// Получай стипендию, выстраивай удобный график,
-      ///  работай на современном железе.
-      internal static let middle = Localizable.tr("Localizable", "label.subtitle.middle", fallback: "Получай стипендию, выстраивай удобный график,\n работай на современном железе.")
+      /// работай на современном железе.
+      internal static let middle = Localizable.tr("Localizable", "label.subtitle.middle", fallback: "Получай стипендию, выстраивай удобный график,\nработай на современном железе.")
       /// Работай над реальными задачами под руководством
       ///  опытного наставника и получи возможность
       ///  стать частью команды мечты.

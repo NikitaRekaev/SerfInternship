@@ -14,7 +14,7 @@ final class BottomView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        backgroundColor = .systemBackground
+        setViewAppearance()
         setViewPosition()
     }
     
@@ -36,7 +36,7 @@ private extension BottomView {
     static func makeButton() -> UIButton {
         let button = UIButton()
         button.backgroundColor = .black
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = .screenHeight / 11 / 2
         button.setTitle(Localizable.Button.send, for: .normal)
         button.tintColor = .white
         return button
@@ -47,6 +47,10 @@ private extension BottomView {
 
 private extension BottomView {
     
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
     func setViewPosition() {
         [offerLabel, offerButton].forEach { addView($0) }
         
@@ -54,7 +58,7 @@ private extension BottomView {
             offerButton.topAnchor.constraint(equalTo: topAnchor),
             offerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             offerButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.58),
-            offerButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            offerButton.heightAnchor.constraint(equalToConstant: .screenHeight / 11),
             
             offerLabel.centerYAnchor.constraint(equalTo: offerButton.centerYAnchor),
             offerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
