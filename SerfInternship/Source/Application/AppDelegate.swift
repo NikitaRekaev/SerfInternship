@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     
     func setRootScreen() {
-        let configurator = MainModuleConfigurator()
-        let navigationController = UINavigationController(rootViewController: configurator.configure())
+        let configurator = Configurator()
+        let navigationController = UINavigationController(rootViewController: configurator.configureScene())
         
         window?.rootViewController = navigationController
     }

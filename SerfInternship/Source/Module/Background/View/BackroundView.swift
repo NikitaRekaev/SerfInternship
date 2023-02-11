@@ -1,13 +1,13 @@
-//  MainRootView.swift
+//  BackgroundView.swift
 //  Nikita Rekaev 10.02.2023
 
 import UIKit
 
-final class MainRootView: UIView {
+final class BackgroundView: UIView {
     
     // MARK: - Properties
     
-    private let backgroundImageView: UIImageView = MainRootView.makeImageView()
+    private let backgroundImageView: UIImageView = BackgroundView.makeImageView()
     
     // MARK: - Initialization
     
@@ -24,7 +24,7 @@ final class MainRootView: UIView {
 
 // MARK: - Creating views
 
-private extension MainRootView {
+private extension BackgroundView {
     
     static func makeImageView() -> UIImageView {
         let imageView = UIImageView()
@@ -36,7 +36,7 @@ private extension MainRootView {
 
 // MARK: - Private methods
 
-private extension MainRootView {
+private extension BackgroundView {
     
     func setViewPosition() {
         addView(backgroundImageView)
