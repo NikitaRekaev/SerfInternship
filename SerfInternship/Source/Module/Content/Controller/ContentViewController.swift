@@ -5,4 +5,8 @@ import UIKit
 
 final class ContentViewController: BaseViewController<ContentRootView> {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
 }

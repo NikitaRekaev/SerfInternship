@@ -11,15 +11,12 @@ final class ContentRootView: UIView {
     private let middleView = MiddleView()
     private let bottomView = BottomView()
     
-    // MARK: - Initialization
+    // MARK: - Life cycle
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setViewAppearance()
         setViewPosition()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
@@ -28,6 +25,10 @@ final class ContentRootView: UIView {
 
 private extension ContentRootView {
     
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
     func setViewPosition() {
         [topView, middleView, bottomView].forEach { addView($0) }
         
@@ -35,17 +36,17 @@ private extension ContentRootView {
             topView.topAnchor.constraint(equalTo: topAnchor),
             topView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topView.heightAnchor.constraint(equalToConstant: 200),
+            topView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
             
             middleView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             middleView.leadingAnchor.constraint(equalTo: leadingAnchor),
             middleView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            middleView.heightAnchor.constraint(equalToConstant: 200),
+            middleView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
             
             bottomView.leadingAnchor.constraint(equalTo: leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: 200)
+            bottomView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4)
         ])
     }
 }

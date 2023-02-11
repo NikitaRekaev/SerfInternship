@@ -13,17 +13,38 @@ final class BackgroundViewController: BaseViewController<BackgroundView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let sheet = content?.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.prefersGrabberVisible = true
-            sheet.largestUndimmedDetentIdentifier = .medium
-            sheet.preferredCornerRadius = 20
-            sheet.prefersEdgeAttachedInCompactHeight = true
-            present(content ?? self, animated: true)
+        presetSheet()
+    }
+    
+}
+
+// MARK: - Private methods
+
+private extension BackgroundViewController {
+    
+    func presetSheet() {
+        let smallId = UISheetPresentationController.Detent.Identifier("small")
+        let smallDetent = UISheetPresentationController.Detent.custom(identifier: smallId) { _ in
+            return self.view.frame.height / 3
         }
         
+        let middleId = UISheetPresentationController.Detent.Identifier("middle")
+        let middleDetent = UISheetPresentationController.Detent.custom(identifier: middleId) { _ in
+            return self.view.frame.height / 1.5
+        }
+        
+        let largeId = UISheetPresentationController.Detent.Identifier("big")
+        let largeDetent = UISheetPresentationController.Detent.custom(identifier: largeId) { _ in
+            return self.view.frame.height / 1.12
+        }
+        
+        if let sheet = content?.sheetPresentationController {
+            sheet.detents = [smallDetent, middleDetent, largeDetent]
+            sheet.preferredCornerRadius = 20
+            sheet.largestUndimmedDetentIdentifier = largeId
+            
+            present(content ?? self, animated: true)
+        }
     }
     
 }

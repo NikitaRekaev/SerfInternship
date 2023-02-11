@@ -16,7 +16,7 @@ internal enum Localizable {
   }
   internal enum Label {
     /// Хочешь к нам?
-    internal static let offers = Localizable.tr("Localizable", "label.offers", fallback: "Хочешь к нам?")
+    internal static let offer = Localizable.tr("Localizable", "label.offer", fallback: "Хочешь к нам?")
     /// Localizable.strings
     ///   SerfInternship
     /// 
