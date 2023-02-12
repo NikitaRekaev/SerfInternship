@@ -7,8 +7,8 @@ final class ContentViewController: BaseViewController<ContentRootView> {
     
     // MARK: - Properties
     
-    private let model = Tab.allCases
-    private var selectTab: Tab?
+    private var model = Tab.allCases.map { TabModel(title: $0.title, isSelected: false) }
+    private var selectTab: TabModel?
     
     // MARK: - Life cycle
     
@@ -16,7 +16,10 @@ final class ContentViewController: BaseViewController<ContentRootView> {
         super.viewDidLoad()
         selfView.setCallback(callback: showAlert)
         selfView.setDelegate(delegate: self, dataSource: self)
-        print(OffSet.viewHeight)
+    }
+    
+    private func getModelIndex(row: Int) -> Int {
+        return row % model.count
     }
     
 }
@@ -26,15 +29,25 @@ final class ContentViewController: BaseViewController<ContentRootView> {
 extension ContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let current = collectionView.cellForItem(at: indexPath)
+        
+        if model[indexPath.item] == selectTab {
+            selectTab = nil
+        } else {
+            selectTab = model[indexPath.item]
+        }
+        
         collectionView.visibleCells.compactMap({ $0 as? CollectionViewCell }).forEach({ cell in
-            if current == cell {
+            guard let selectTab = selectTab else {
+                cell.selectTab?.isSelected = false
                 return
             }
-            cell.isSelected = false
+            let cellSelectTab = cell.selectTab
+            cell.selectTab?.isSelected = (selectTab == cellSelectTab)
         })
         
-        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+        collectionView.moveItem(at: indexPath, to: IndexPath(row: 0, section: 0))
+        model.move(fromOffsets: IndexSet(integer: indexPath.item), toOffset: 0)
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .left, animated: true)
     }
     
 }
@@ -49,8 +62,8 @@ extension ContentViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueCell(cellType: CollectionViewCell.self, for: indexPath)
-        
-        cell.setTitle(model[indexPath.item].title)
+        cell.selectTab = model[indexPath.item]
+        cell.setTitle(model[getModelIndex(row: indexPath.item)].title)
         
         return cell
     }
@@ -65,7 +78,7 @@ extension ContentViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let label = UILabel(frame: CGRect.zero)
-        label.text = model[indexPath.item].title
+        label.text = model[getModelIndex(row: indexPath.item)].title
         label.sizeToFit()
         
         return CGSize(width: label.frame.width + OffSet.top * 2,

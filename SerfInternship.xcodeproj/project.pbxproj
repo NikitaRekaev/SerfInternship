@@ -36,6 +36,7 @@
 		11A665DD299677B6009ED5FB /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A665DA299677B6009ED5FB /* Fonts.swift */; };
 		11A665DE299677B6009ED5FB /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A665DB299677B6009ED5FB /* Localizable.swift */; };
 		11A665DF299677B6009ED5FB /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A665DC299677B6009ED5FB /* Assets.swift */; };
+		11AF275829996DB9006F472A /* TabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AF275729996DB9006F472A /* TabModel.swift */; };
 		C31F0D68F5C4723B58EB5423 /* BackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1497C5452C5F42949EB4650F /* BackgroundViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		11A665DA299677B6009ED5FB /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		11A665DB299677B6009ED5FB /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		11A665DC299677B6009ED5FB /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		11AF275729996DB9006F472A /* TabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabModel.swift; sourceTree = "<group>"; };
 		1497C5452C5F42949EB4650F /* BackgroundViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BackgroundViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,7 +124,6 @@
 		117C6E4C29969B5E00D138E6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				117C6E71299825BE00D138E6 /* Foundation */,
 				117C6E4D29969B6800D138E6 /* UIKit */,
 			);
 			path = Extension;
@@ -144,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				117C6E5129969C9600D138E6 /* Tab.swift */,
+				11AF275729996DB9006F472A /* TabModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,13 +218,6 @@
 				117C6E5F2997DED100D138E6 /* ContentRootView.swift */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		117C6E71299825BE00D138E6 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Foundation;
 			sourceTree = "<group>";
 		};
 		117C6E762998E48500D138E6 /* Constant */ = {
@@ -457,6 +452,7 @@
 				117C6E692997E4D300D138E6 /* TopView.swift in Sources */,
 				11A665DD299677B6009ED5FB /* Fonts.swift in Sources */,
 				11A665DE299677B6009ED5FB /* Localizable.swift in Sources */,
+				11AF275829996DB9006F472A /* TabModel.swift in Sources */,
 				11A665DF299677B6009ED5FB /* Assets.swift in Sources */,
 				117C6E622997DEE000D138E6 /* ContentViewController.swift in Sources */,
 				117C6E642997E3B200D138E6 /* BottomView.swift in Sources */,

@@ -76,7 +76,7 @@ private extension TopView {
         collection.contentInset = UIEdgeInsets(top: .zero,
                                                left: OffSet.padding,
                                                bottom: .zero,
-                                               right: OffSet.padding)
+                                               right: OffSet.padding * 2)
         
         return collection
     }

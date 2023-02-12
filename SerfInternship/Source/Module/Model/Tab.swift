@@ -1,8 +1,6 @@
 //  TabModel.swift
 //  Nikita Rekaev 10.02.2023
 
-import Foundation
-
 enum Tab {
     case ios
     case android

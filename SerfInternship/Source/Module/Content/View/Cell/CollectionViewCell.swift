@@ -6,7 +6,7 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
-    var selectTab: Tab?
+    var selectTab: TabModel?
     private let label = CollectionViewCell.makeLabel()
     
     override var isSelected: Bool {
