@@ -3,6 +3,15 @@
 
 import UIKit
 
+private extension OffSet {
+    
+    /// 60 pixels on the 13 mini
+    static let buttonHeight: CGFloat = .screenHeight / 13.533333333333333
+    
+    /// 219 pixels on the 13 mini
+    static let buttonWidth: CGFloat = .screenWidth / 1.712328767123288
+}
+
 final class BottomView: UIView {
     
     // MARK: - Properties
@@ -27,7 +36,7 @@ private extension BottomView {
     static func makeLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.text = text
-        label.font = Fonts.SFProDisplay.regular.font(size: 14)
+        label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
         label.textColor = .lightGray
         label.sizeToFit()
         return label
@@ -36,8 +45,9 @@ private extension BottomView {
     static func makeButton() -> UIButton {
         let button = UIButton()
         button.backgroundColor = .black
-        button.layer.cornerRadius = .screenHeight / 11 / 2
+        button.layer.cornerRadius = OffSet.buttonHeight / 2
         button.setTitle(Localizable.Button.send, for: .normal)
+        button.titleLabel?.font = Fonts.SFProDisplay.medium.font(size: FontSize.medium)
         button.tintColor = .white
         return button
     }
@@ -55,13 +65,13 @@ private extension BottomView {
         [offerLabel, offerButton].forEach { addView($0) }
         
         NSLayoutConstraint.activate([
-            offerButton.topAnchor.constraint(equalTo: topAnchor),
-            offerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            offerButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.58),
-            offerButton.heightAnchor.constraint(equalToConstant: .screenHeight / 11),
-            
             offerLabel.centerYAnchor.constraint(equalTo: offerButton.centerYAnchor),
-            offerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            offerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: OffSet.padding),
+            
+            offerButton.topAnchor.constraint(equalTo: topAnchor, constant: OffSet.top),
+            offerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -OffSet.padding),
+            offerButton.widthAnchor.constraint(equalToConstant: OffSet.buttonWidth),
+            offerButton.heightAnchor.constraint(equalToConstant: OffSet.buttonHeight)
         ])
     }
     

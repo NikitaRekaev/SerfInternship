@@ -43,17 +43,18 @@ private extension ContentRootView {
             topView.topAnchor.constraint(equalTo: topAnchor),
             topView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topView.heightAnchor.constraint(equalToConstant: .screenHeight / 4),
+            topView.heightAnchor.constraint(equalToConstant: OffSet.viewHeight),
             
             middleView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             middleView.leadingAnchor.constraint(equalTo: leadingAnchor),
             middleView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            middleView.heightAnchor.constraint(equalToConstant: .screenHeight / 4),
+            middleView.heightAnchor.constraint(equalToConstant: OffSet.viewHeight),
             
             bottomView.leadingAnchor.constraint(equalTo: leadingAnchor),
             bottomView.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: .screenHeight / 4)
+            bottomView.heightAnchor.constraint(equalToConstant: OffSet.viewHeight)
         ])
     }
+    
 }

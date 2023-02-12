@@ -58,8 +58,8 @@ extension ContentViewController: UICollectionViewDelegateFlowLayout {
         label.text = model[indexPath.item].title
         label.sizeToFit()
         
-        return CGSize(width: label.frame.width + 58,
-                      height: label.frame.height + 24)
+        return CGSize(width: label.frame.width + OffSet.top * 2,
+                      height: label.frame.height + OffSet.top)
     }
     
 }

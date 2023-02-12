@@ -7,8 +7,8 @@ final class TopView: UIView {
     
     // MARK: - Properties
     
-    private let titleLabel = TopView.makeLabel(text: Localizable.Label.title)
-    private let textView = TopView.makeTextView(text: Localizable.Label.Subtitle.top)
+    private let titleLabel = TopView.makeTitleLabel(text: Localizable.Label.title)
+    private let discriptionLabel = TopView.makeDiscriptionLabel(text: Localizable.Label.Subtitle.top)
     private let collection = TopView.makeCollection(cell: CollectionViewCell.self)
     
     // MARK: - Initialization
@@ -43,34 +43,41 @@ final class TopView: UIView {
 
 private extension TopView {
     
-    static func makeLabel(text: String = "Label") -> UILabel {
+    static func makeTitleLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.text = text
-        label.font = Fonts.SFProDisplay.regular.font(size: 14)
+        label.font = Fonts.SFProDisplay.bold.font(size: FontSize.large)
         label.textColor = .black
         label.sizeToFit()
         return label
     }
     
-    static func makeTextView(text: String = "TextView") -> UITextView {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.text = text
-        return textView
+    static func makeDiscriptionLabel(text: String = "Label") -> UILabel {
+        let label = UILabel()
+        label.numberOfLines = .zero
+        label.text = text
+        label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.sizeToFit()
+        return label
     }
     
     static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = OffSet.spacing
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collection.backgroundColor = .none
         collection.showsHorizontalScrollIndicator = false
         collection.register(cell)
+        collection.contentInset = UIEdgeInsets(top: .zero,
+                                               left: OffSet.padding,
+                                               bottom: .zero,
+                                               right: OffSet.padding)
+        
         return collection
     }
     
@@ -85,7 +92,21 @@ private extension TopView {
     }
     
     func setViewPosition() {
+        [titleLabel, discriptionLabel, collection].forEach { addView($0) }
         
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: OffSet.top),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: OffSet.padding),
+            
+            discriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: OffSet.spacing),
+            discriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            discriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -OffSet.padding),
+            
+            collection.topAnchor.constraint(equalTo: discriptionLabel.bottomAnchor, constant: OffSet.spacing),
+            collection.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collection.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collection.heightAnchor.constraint(equalToConstant: OffSet.collectionHeight)
+        ])
     }
     
 }

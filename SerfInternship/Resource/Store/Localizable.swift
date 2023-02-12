@@ -27,9 +27,9 @@ internal enum Localizable {
       /// работай на современном железе.
       internal static let middle = Localizable.tr("Localizable", "label.subtitle.middle", fallback: "Получай стипендию, выстраивай удобный график,\nработай на современном железе.")
       /// Работай над реальными задачами под руководством
-      ///  опытного наставника и получи возможность
-      ///  стать частью команды мечты.
-      internal static let top = Localizable.tr("Localizable", "label.subtitle.top", fallback: "Работай над реальными задачами под руководством\n опытного наставника и получи возможность\n стать частью команды мечты.")
+      /// опытного наставника и получи возможность
+      /// стать частью команды мечты.
+      internal static let top = Localizable.tr("Localizable", "label.subtitle.top", fallback: "Работай над реальными задачами под руководством\nопытного наставника и получи возможность\nстать частью команды мечты.")
     }
   }
   internal enum Tab {

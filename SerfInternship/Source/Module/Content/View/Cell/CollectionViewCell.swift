@@ -42,7 +42,7 @@ private extension CollectionViewCell {
     static func makeLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.text = text
-        label.font = Fonts.SFProDisplay.medium.font(size: 14)
+        label.font = Fonts.SFProDisplay.medium.font(size: FontSize.small)
         label.textColor = .black
         label.sizeToFit()
         return label
@@ -56,7 +56,7 @@ private extension CollectionViewCell {
     
     func setViewApearance() {
         contentView.backgroundColor = .lightGray.withAlphaComponent(0.3)
-        contentView.layer.cornerRadius = 12
+        contentView.layer.cornerRadius = OffSet.collectionHeight / 4
     }
     
     func setViewPosition() {

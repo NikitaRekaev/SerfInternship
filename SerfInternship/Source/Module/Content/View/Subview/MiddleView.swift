@@ -3,6 +3,12 @@
 
 import UIKit
 
+private extension OffSet {
+    
+    /// Two rows of collection + spacing
+    static let twoSectionCollectionHeight: CGFloat = OffSet.collectionHeight * 2 + OffSet.spacing
+}
+
 final class MiddleView: UIView {
     
     // MARK: - Properties
@@ -41,11 +47,11 @@ final class MiddleView: UIView {
 
 private extension MiddleView {
     
-    static func makeLabel(text: String = "TextView") -> UILabel {
+    static func makeLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.numberOfLines = .zero
         label.text = text
-        label.font = Fonts.SFProDisplay.regular.font(size: .screenHeight * 0.021)
+        label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
         label.textColor = .lightGray
         label.textAlignment = .left
         label.sizeToFit()
@@ -55,13 +61,16 @@ private extension MiddleView {
     static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
         let layout = LeftAlignmentLayout(rowsCount: 2)
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 12
+        layout.minimumInteritemSpacing = OffSet.spacing
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collection.backgroundColor = .none
         collection.showsHorizontalScrollIndicator = false
         collection.register(cell)
+        collection.contentInset = UIEdgeInsets(top: .zero,
+                                               left: OffSet.padding,
+                                               bottom: .zero,
+                                               right: OffSet.padding)
         return collection
     }
     
@@ -79,15 +88,14 @@ private extension MiddleView {
         [label, collection].forEach { addView($0) }
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            label.heightAnchor.constraint(equalToConstant: .screenHeight * 0.06),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: OffSet.spacing),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: OffSet.padding),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -OffSet.padding),
             
-            collection.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 12),
+            collection.topAnchor.constraint(equalTo: label.bottomAnchor, constant: OffSet.spacing),
             collection.leadingAnchor.constraint(equalTo: leadingAnchor),
             collection.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collection.heightAnchor.constraint(equalToConstant: 100)
+            collection.heightAnchor.constraint(equalToConstant: OffSet.twoSectionCollectionHeight)
         ])
     }
     
