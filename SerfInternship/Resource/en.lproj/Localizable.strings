@@ -20,6 +20,11 @@
 // Button
 "button.send" = "Отправить заявку";
 
+// Alert
+"alert.title" = "Поздравляем!";
+"alert.message" = "Вашая заявка успешна отправлена!";
+"alert.action" = "Закрыть";
+
 // Tabs
 "tab.ios" = "iOS";
 "tab.android" = "Android";

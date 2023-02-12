@@ -11,7 +11,6 @@ final class CollectionViewCell: UICollectionViewCell {
     
     override var isSelected: Bool {
         didSet {
-            print(isSelected ? "отработал true" : "отработал false")
             label.textColor = isSelected ? Pallete.white : Pallete.black
             contentView.backgroundColor = isSelected ? Pallete.darkGray : Pallete.ligthGray
         }

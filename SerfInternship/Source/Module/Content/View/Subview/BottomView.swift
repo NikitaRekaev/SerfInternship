@@ -11,7 +11,7 @@ private extension OffSet {
     static let buttonHeight: CGFloat = .screenHeight / 13.533333333333333
     
     /// 219 pixels on the 13 mini
-    static let buttonWidth: CGFloat = .screenWidth / 1.712328767123288
+    static let buttonWidth: CGFloat = FontSize.medium * 13.6875
 }
 
 final class BottomView: UIView {

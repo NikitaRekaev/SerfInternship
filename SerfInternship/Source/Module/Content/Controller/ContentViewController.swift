@@ -16,6 +16,7 @@ final class ContentViewController: BaseViewController<ContentRootView> {
         super.viewDidLoad()
         selfView.setCallback(callback: showAlert)
         selfView.setDelegate(delegate: self, dataSource: self)
+        print(OffSet.viewHeight)
     }
     
 }
@@ -68,7 +69,7 @@ extension ContentViewController: UICollectionViewDelegateFlowLayout {
         label.sizeToFit()
         
         return CGSize(width: label.frame.width + OffSet.top * 2,
-                      height: label.frame.height + OffSet.top)
+                      height: OffSet.collectionHeight)
     }
     
 }
@@ -78,10 +79,11 @@ extension ContentViewController: UICollectionViewDelegateFlowLayout {
 private extension ContentViewController {
     
     func showAlert() {
-        let alert = UIAlertController(title: "Поздравляем!",
-                                      message: "Вашая заявка успешна отправлена!",
+        let alert = UIAlertController(title: Localizable.Alert.title,
+                                      message: Localizable.Alert.message,
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Закрыть", style: .default))
+        alert.addAction(UIAlertAction(title: Localizable.Alert.action, style: .default))
+        
         self.present(alert, animated: true, completion: nil)
     }
     

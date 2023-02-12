@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Localizable {
+  internal enum Alert {
+    /// Закрыть
+    internal static let action = Localizable.tr("Localizable", "alert.action", fallback: "Закрыть")
+    /// Вашая заявка успешна отправлена!
+    internal static let message = Localizable.tr("Localizable", "alert.message", fallback: "Вашая заявка успешна отправлена!")
+    /// Поздравляем!
+    internal static let title = Localizable.tr("Localizable", "alert.title", fallback: "Поздравляем!")
+  }
   internal enum Button {
     /// Отправить заявку
     internal static let send = Localizable.tr("Localizable", "button.send", fallback: "Отправить заявку")
