@@ -7,7 +7,7 @@ final class MiddleView: UIView {
     
     // MARK: - Properties
     
-    private let textView = MiddleView.makeTextView(text: Localizable.Label.Subtitle.middle)
+    private let label = MiddleView.makeLabel(text: Localizable.Label.Subtitle.middle)
     private let collection = MiddleView.makeCollection(cell: CollectionViewCell.self)
     
     // MARK: - Initialization
@@ -41,21 +41,20 @@ final class MiddleView: UIView {
 
 private extension MiddleView {
     
-    static func makeTextView(text: String = "TextView") -> UITextView {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.text = text
-        textView.font = Fonts.SFProDisplay.regular.font(size: 14)
-        textView.textColor = .lightGray
-        textView.textAlignment = .left
-        return textView
+    static func makeLabel(text: String = "TextView") -> UILabel {
+        let label = UILabel()
+        label.numberOfLines = .zero
+        label.text = text
+        label.font = Fonts.SFProDisplay.regular.font(size: .screenHeight * 0.021)
+        label.textColor = .lightGray
+        label.textAlignment = .left
+        label.sizeToFit()
+        return label
     }
     
     static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
-        let layout = UICollectionViewFlowLayout()
+        let layout = LeftAlignmentLayout(rowsCount: 2)
         layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        layout.minimumLineSpacing = 12
         layout.minimumInteritemSpacing = 12
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -77,18 +76,18 @@ private extension MiddleView {
     }
     
     func setViewPosition() {
-        [textView, collection].forEach { addView($0) }
+        [label, collection].forEach { addView($0) }
         
         NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: topAnchor),
-            textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            textView.heightAnchor.constraint(equalToConstant: 40),
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            label.heightAnchor.constraint(equalToConstant: .screenHeight * 0.06),
             
-            collection.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 12),
+            collection.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 12),
             collection.leadingAnchor.constraint(equalTo: leadingAnchor),
             collection.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collection.heightAnchor.constraint(equalToConstant: 101)
+            collection.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
