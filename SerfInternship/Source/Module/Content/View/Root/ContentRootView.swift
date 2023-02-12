@@ -36,6 +36,10 @@ final class ContentRootView: UIView {
         middleView.setDelegate(delegate: delegate, dataSource: dataSource)
     }
     
+    func setCallback(callback: (() -> Void)?) {
+        bottomView.callback = callback
+    }
+    
 }
 
 // MARK: - Private methods

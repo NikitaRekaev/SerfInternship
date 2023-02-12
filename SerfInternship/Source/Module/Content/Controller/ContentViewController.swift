@@ -7,13 +7,14 @@ final class ContentViewController: BaseViewController<ContentRootView> {
     
     // MARK: - Properties
     
-    let model = Tab.allCases
+    private let model = Tab.allCases
+    private var selectTab: Tab?
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        selfView.setCallback(callback: showAlert)
         selfView.setDelegate(delegate: self, dataSource: self)
     }
     
@@ -24,7 +25,15 @@ final class ContentViewController: BaseViewController<ContentRootView> {
 extension ContentViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let current = collectionView.cellForItem(at: indexPath)
+        collectionView.visibleCells.compactMap({ $0 as? CollectionViewCell }).forEach({ cell in
+            if current == cell {
+                return
+            }
+            cell.isSelected = false
+        })
         
+        collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
     }
     
 }
@@ -60,6 +69,20 @@ extension ContentViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: label.frame.width + OffSet.top * 2,
                       height: label.frame.height + OffSet.top)
+    }
+    
+}
+
+// MARK: - Private methods
+
+private extension ContentViewController {
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Поздравляем!",
+                                      message: "Вашая заявка успешна отправлена!",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Закрыть", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

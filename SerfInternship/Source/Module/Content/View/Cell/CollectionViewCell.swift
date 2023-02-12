@@ -6,8 +6,16 @@ import UIKit
 final class CollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
-    
+    var selectTab: Tab?
     private let label = CollectionViewCell.makeLabel()
+    
+    override var isSelected: Bool {
+        didSet {
+            print(isSelected ? "отработал true" : "отработал false")
+            label.textColor = isSelected ? Pallete.white : Pallete.black
+            contentView.backgroundColor = isSelected ? Pallete.darkGray : Pallete.ligthGray
+        }
+    }
     
     // MARK: - Initialization
     
@@ -27,7 +35,7 @@ final class CollectionViewCell: UICollectionViewCell {
         setViewPosition()
     }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func setTitle(_ title: String) {
         label.text = title

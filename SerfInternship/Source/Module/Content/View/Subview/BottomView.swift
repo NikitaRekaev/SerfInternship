@@ -21,11 +21,14 @@ final class BottomView: UIView {
     private let offerLabel: UILabel = BottomView.makeLabel(text: Localizable.Label.offer)
     private let offerButton: UIButton = BottomView.makeButton()
     
+    var callback: (() -> Void)?
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setViewAppearance()
+        offerButton.addTarget(nil, action: #selector(offerButtonPresed), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -62,6 +65,16 @@ private extension BottomView {
         button.setTitleColor(Pallete.white, for: .normal)
         button.titleLabel?.font = Fonts.SFProDisplay.medium.font(size: FontSize.medium)
         return button
+    }
+}
+
+// MARK: - Action
+
+@objc
+private extension BottomView {
+    
+    func offerButtonPresed() {
+        callback?()
     }
 }
 
