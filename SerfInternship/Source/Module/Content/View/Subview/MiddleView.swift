@@ -52,7 +52,7 @@ private extension MiddleView {
         label.numberOfLines = .zero
         label.text = text
         label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
-        label.textColor = .lightGray
+        label.textColor = Pallete.gray
         label.textAlignment = .left
         label.sizeToFit()
         return label

@@ -47,7 +47,7 @@ private extension TopView {
         let label = UILabel()
         label.text = text
         label.font = Fonts.SFProDisplay.bold.font(size: FontSize.large)
-        label.textColor = .black
+        label.textColor = Pallete.black
         label.sizeToFit()
         return label
     }
@@ -57,7 +57,7 @@ private extension TopView {
         label.numberOfLines = .zero
         label.text = text
         label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
-        label.textColor = .lightGray
+        label.textColor = Pallete.gray
         label.textAlignment = .left
         label.sizeToFit()
         return label

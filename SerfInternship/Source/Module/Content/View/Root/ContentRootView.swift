@@ -11,11 +11,21 @@ final class ContentRootView: UIView {
     private let middleView = MiddleView()
     private let bottomView = BottomView()
     
+    // MARK: - Initialization
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        setViewAppearance()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life cycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setViewAppearance()
         setViewPosition()
     }
     

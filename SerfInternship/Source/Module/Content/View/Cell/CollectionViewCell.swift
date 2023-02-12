@@ -9,10 +9,11 @@ final class CollectionViewCell: UICollectionViewCell {
     
     private let label = CollectionViewCell.makeLabel()
     
+    // MARK: - Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        setViewApearance()
+        setViewAppearance()
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +24,6 @@ final class CollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         setViewPosition()
     }
     
@@ -43,7 +43,7 @@ private extension CollectionViewCell {
         let label = UILabel()
         label.text = text
         label.font = Fonts.SFProDisplay.medium.font(size: FontSize.small)
-        label.textColor = .black
+        label.textColor = Pallete.black
         label.sizeToFit()
         return label
     }
@@ -54,8 +54,8 @@ private extension CollectionViewCell {
 
 private extension CollectionViewCell {
     
-    func setViewApearance() {
-        contentView.backgroundColor = .lightGray.withAlphaComponent(0.3)
+    func setViewAppearance() {
+        contentView.backgroundColor = Pallete.ligthGray
         contentView.layer.cornerRadius = OffSet.collectionHeight / 4
     }
     

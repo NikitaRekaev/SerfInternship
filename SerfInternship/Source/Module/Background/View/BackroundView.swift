@@ -9,15 +9,11 @@ final class BackgroundView: UIView {
     
     private let backgroundImageView: UIImageView = BackgroundView.makeImageView()
     
-    // MARK: - Initialization
+    // MARK: - Life cycle
     
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
+    override func layoutSubviews() {
+        super.layoutSubviews()
         setViewPosition()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }
@@ -48,4 +44,5 @@ private extension BackgroundView {
             backgroundImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
 }

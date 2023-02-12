@@ -23,6 +23,9 @@
 		117C6E752998581500D138E6 /* LeftAlignmentLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E742998581500D138E6 /* LeftAlignmentLayout.swift */; };
 		117C6E782998E49400D138E6 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E772998E49400D138E6 /* FontSize.swift */; };
 		117C6E7A2998E83300D138E6 /* OffSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E792998E83300D138E6 /* OffSet.swift */; };
+		117C6E7D2999061B00D138E6 /* UIColor+darkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E7C2999061B00D138E6 /* UIColor+darkMode.swift */; };
+		117C6E7F2999064900D138E6 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E7E2999064900D138E6 /* UIColor+Hex.swift */; };
+		117C6E812999065D00D138E6 /* Pallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117C6E802999065D00D138E6 /* Pallete.swift */; };
 		11A665A129967099009ED5FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A665A029967099009ED5FB /* AppDelegate.swift */; };
 		11A665AA2996709A009ED5FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11A665A92996709A009ED5FB /* Assets.xcassets */; };
 		11A665AD2996709A009ED5FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11A665AB2996709A009ED5FB /* LaunchScreen.storyboard */; };
@@ -53,6 +56,9 @@
 		117C6E742998581500D138E6 /* LeftAlignmentLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentLayout.swift; sourceTree = "<group>"; };
 		117C6E772998E49400D138E6 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		117C6E792998E83300D138E6 /* OffSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffSet.swift; sourceTree = "<group>"; };
+		117C6E7C2999061B00D138E6 /* UIColor+darkMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+darkMode.swift"; sourceTree = "<group>"; };
+		117C6E7E2999064900D138E6 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		117C6E802999065D00D138E6 /* Pallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pallete.swift; sourceTree = "<group>"; };
 		11A6659D29967099009ED5FB /* SerfInternship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SerfInternship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11A665A029967099009ED5FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11A665A92996709A009ED5FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		117C6E4D29969B6800D138E6 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				117C6E7B299905FB00D138E6 /* UIColor */,
 				117C6E72299825F300D138E6 /* CGFloat+screenSize.swift */,
 				117C6E4E29969B8800D138E6 /* UIView+addView.swift */,
 				117C6E6F2998202D00D138E6 /* ReuseIdentifiable.swift */,
@@ -227,6 +234,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		117C6E7B299905FB00D138E6 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				117C6E7C2999061B00D138E6 /* UIColor+darkMode.swift */,
+				117C6E7E2999064900D138E6 /* UIColor+Hex.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		11862FD02996808C00AFB276 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +305,7 @@
 				11A665DC299677B6009ED5FB /* Assets.swift */,
 				11A665DA299677B6009ED5FB /* Fonts.swift */,
 				11A665DB299677B6009ED5FB /* Localizable.swift */,
+				117C6E802999065D00D138E6 /* Pallete.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -432,7 +449,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				117C6E73299825F300D138E6 /* CGFloat+screenSize.swift in Sources */,
+				117C6E812999065D00D138E6 /* Pallete.swift in Sources */,
 				117C6E7A2998E83300D138E6 /* OffSet.swift in Sources */,
+				117C6E7F2999064900D138E6 /* UIColor+Hex.swift in Sources */,
 				117C6E702998202D00D138E6 /* ReuseIdentifiable.swift in Sources */,
 				117C6E602997DED100D138E6 /* ContentRootView.swift in Sources */,
 				117C6E692997E4D300D138E6 /* TopView.swift in Sources */,
@@ -451,6 +470,7 @@
 				117C6E4F29969B8800D138E6 /* UIView+addView.swift in Sources */,
 				117C6E672997E4CC00D138E6 /* MiddleView.swift in Sources */,
 				117C6E5C2997DE9200D138E6 /* Configurator.swift in Sources */,
+				117C6E7D2999061B00D138E6 /* UIColor+darkMode.swift in Sources */,
 				C31F0D68F5C4723B58EB5423 /* BackgroundViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,6 +3,8 @@
 
 import UIKit
 
+// MARK: - Constants
+
 private extension OffSet {
     
     /// 60 pixels on the 13 mini
@@ -19,11 +21,21 @@ final class BottomView: UIView {
     private let offerLabel: UILabel = BottomView.makeLabel(text: Localizable.Label.offer)
     private let offerButton: UIButton = BottomView.makeButton()
     
+    // MARK: - Initialization
+    
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+        setViewAppearance()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life cycle
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setViewAppearance()
         setViewPosition()
     }
     
@@ -37,18 +49,18 @@ private extension BottomView {
         let label = UILabel()
         label.text = text
         label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
-        label.textColor = .lightGray
+        label.textColor = Pallete.gray
         label.sizeToFit()
         return label
     }
     
     static func makeButton() -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .black
+        button.backgroundColor = Pallete.black
         button.layer.cornerRadius = OffSet.buttonHeight / 2
         button.setTitle(Localizable.Button.send, for: .normal)
+        button.setTitleColor(Pallete.white, for: .normal)
         button.titleLabel?.font = Fonts.SFProDisplay.medium.font(size: FontSize.medium)
-        button.tintColor = .white
         return button
     }
 }

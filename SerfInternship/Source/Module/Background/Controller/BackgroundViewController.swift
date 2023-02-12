@@ -37,7 +37,7 @@ private extension BackgroundViewController {
         
         if let sheet = content?.sheetPresentationController {
             sheet.detents = [smallDetent, middleDetent, .large()]
-            sheet.preferredCornerRadius = 20
+            sheet.preferredCornerRadius = OffSet.padding
             sheet.largestUndimmedDetentIdentifier = .large
             
             present(content ?? self, animated: true)
