@@ -18,5 +18,5 @@ struct OffSet {
     static let viewHeight: CGFloat = .screenHeight / 4.41304347826086
     
     /// 44.33 pixels on the 13 mini
-    static let collectionHeight: CGFloat = FontSize.small + OffSet.top + 6
+    static let collectionHeight: CGFloat = .screenHeight / 18.317166704263478
 }

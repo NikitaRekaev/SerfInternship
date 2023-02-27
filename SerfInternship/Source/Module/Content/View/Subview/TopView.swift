@@ -7,15 +7,14 @@ final class TopView: UIView {
     
     // MARK: - Properties
     
-    private let titleLabel = TopView.makeTitleLabel(text: Localizable.Label.title)
-    private let discriptionLabel = TopView.makeDiscriptionLabel(text: Localizable.Label.Subtitle.top)
-    private let collection = TopView.makeCollection(cell: CollectionViewCell.self)
+    private lazy var titleLabel = makeTitleLabel(text: Localizable.Label.title)
+    private lazy var discriptionLabel = makeDiscriptionLabel(text: Localizable.Label.Subtitle.top)
+    private lazy var collection = makeCollection(cell: CollectionViewCell.self)
     
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
         setViewAppearance()
     }
     
@@ -32,18 +31,22 @@ final class TopView: UIView {
     
     // MARK: - Internal methods
     
-    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+    func setDelegate(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?) {
         collection.delegate = delegate
         collection.dataSource = dataSource
     }
     
 }
 
-// MARK: - Create subviews
+// MARK: - Private methods
 
 private extension TopView {
     
-    static func makeTitleLabel(text: String = "Label") -> UILabel {
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
+    func makeTitleLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.text = text
         label.font = Fonts.SFProDisplay.bold.font(size: FontSize.large)
@@ -52,7 +55,7 @@ private extension TopView {
         return label
     }
     
-    static func makeDiscriptionLabel(text: String = "Label") -> UILabel {
+    func makeDiscriptionLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.numberOfLines = .zero
         label.text = text
@@ -63,7 +66,7 @@ private extension TopView {
         return label
     }
     
-    static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
+    func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -79,16 +82,6 @@ private extension TopView {
                                                right: OffSet.padding * 2)
         
         return collection
-    }
-    
-}
-
-// MARK: - Private methods
-
-private extension TopView {
-    
-    func setViewAppearance() {
-        backgroundColor = .systemBackground
     }
     
     func setViewPosition() {

@@ -9,6 +9,13 @@ final class Configurator {
         
         let backgroundController = BackgroundViewController()
         let contentViewController = ContentViewController()
+        let topCollectionConfigurator = TopCollectionConfigurator()
+        let middleCollectionConfigurator = MiddleCollectionConfigurator()
+        
+        contentViewController.topCollectionDataSource = topCollectionConfigurator
+        contentViewController.topCollectionDelegate = topCollectionConfigurator
+        contentViewController.middleCollectionDataSource = middleCollectionConfigurator
+        contentViewController.middleCollectionDelegate = middleCollectionConfigurator
         
         backgroundController.content = contentViewController
         

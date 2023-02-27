@@ -31,9 +31,12 @@ final class ContentRootView: UIView {
     
     // MARK: - Iternal method
     
-    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
-        topView.setDelegate(delegate: delegate, dataSource: dataSource)
-        middleView.setDelegate(delegate: delegate, dataSource: dataSource)
+    func setInfiniteCollectionDelegate(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?) {
+        topView.setDelegate(dataSource: dataSource, delegate: delegate)
+    }
+    
+    func setAnimatedCollectionDelegate(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?) {
+        middleView.setDelegate(dataSource: dataSource, delegate: delegate)
     }
     
     func setCallback(callback: (() -> Void)?) {

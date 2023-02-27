@@ -18,8 +18,8 @@ final class BottomView: UIView {
     
     // MARK: - Properties
     
-    private let offerLabel: UILabel = BottomView.makeLabel(text: Localizable.Label.offer)
-    private let offerButton: UIButton = BottomView.makeButton()
+    private lazy var offerLabel: UILabel = makeLabel(text: Localizable.Label.offer)
+    private lazy var offerButton: UIButton = makeButton()
     
     var callback: (() -> Void)?
     
@@ -44,11 +44,15 @@ final class BottomView: UIView {
     
 }
 
-// MARK: - Create subviews
+// MARK: - Private methods
 
 private extension BottomView {
     
-    static func makeLabel(text: String = "Label") -> UILabel {
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
+    func makeLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.text = text
         label.font = Fonts.SFProDisplay.regular.font(size: FontSize.small)
@@ -57,7 +61,7 @@ private extension BottomView {
         return label
     }
     
-    static func makeButton() -> UIButton {
+    func makeButton() -> UIButton {
         let button = UIButton()
         button.backgroundColor = Pallete.black
         button.layer.cornerRadius = OffSet.buttonHeight / 2
@@ -65,25 +69,6 @@ private extension BottomView {
         button.setTitleColor(Pallete.white, for: .normal)
         button.titleLabel?.font = Fonts.SFProDisplay.medium.font(size: FontSize.medium)
         return button
-    }
-}
-
-// MARK: - Action
-
-@objc
-private extension BottomView {
-    
-    func offerButtonPresed() {
-        callback?()
-    }
-}
-
-// MARK: - Private methods
-
-private extension BottomView {
-    
-    func setViewAppearance() {
-        backgroundColor = .systemBackground
     }
     
     func setViewPosition() {
@@ -98,6 +83,17 @@ private extension BottomView {
             offerButton.widthAnchor.constraint(equalToConstant: OffSet.buttonWidth),
             offerButton.heightAnchor.constraint(equalToConstant: OffSet.buttonHeight)
         ])
+    }
+    
+}
+
+// MARK: - Action
+
+@objc
+private extension BottomView {
+    
+    func offerButtonPresed() {
+        callback?()
     }
     
 }

@@ -13,8 +13,8 @@ final class MiddleView: UIView {
     
     // MARK: - Properties
     
-    private let label = MiddleView.makeLabel(text: Localizable.Label.Subtitle.middle)
-    private let collection = MiddleView.makeCollection(cell: CollectionViewCell.self)
+    private lazy var label = makeLabel(text: Localizable.Label.Subtitle.middle)
+    private lazy var collection = makeCollection(cell: CollectionViewCell.self)
     
     // MARK: - Initialization
     
@@ -36,18 +36,22 @@ final class MiddleView: UIView {
     
     // MARK: - Internal methods
     
-    func setDelegate(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
+    func setDelegate(dataSource: UICollectionViewDataSource?, delegate: UICollectionViewDelegate?) {
         collection.delegate = delegate
         collection.dataSource = dataSource
     }
     
 }
 
-// MARK: - Create subviews
+// MARK: - Private methods
 
 private extension MiddleView {
     
-    static func makeLabel(text: String = "Label") -> UILabel {
+    func setViewAppearance() {
+        backgroundColor = .systemBackground
+    }
+    
+    func makeLabel(text: String = "Label") -> UILabel {
         let label = UILabel()
         label.numberOfLines = .zero
         label.text = text
@@ -58,7 +62,7 @@ private extension MiddleView {
         return label
     }
     
-    static func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
+    func makeCollection(cell: UICollectionViewCell.Type) -> UICollectionView {
         let layout = LeftAlignmentLayout(rowsCount: 2)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = OffSet.spacing
@@ -72,16 +76,6 @@ private extension MiddleView {
                                                bottom: .zero,
                                                right: OffSet.padding)
         return collection
-    }
-    
-}
-
-// MARK: - Private methods
-
-private extension MiddleView {
-    
-    func setViewAppearance() {
-        backgroundColor = .systemBackground
     }
     
     func setViewPosition() {

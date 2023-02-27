@@ -27,11 +27,11 @@ final class LeftAlignmentLayout: UICollectionViewFlowLayout {
         in rect: CGRect
     ) -> [UICollectionViewLayoutAttributes]? {
 
-        guard let attributes = super.layoutAttributesForElements(in: rect) else {return []}
+        guard let attributes = super.layoutAttributesForElements(in: rect) else { return [] }
         
         var xRows: [Double] = Array(repeating: .zero, count: self.rowsCount)
         var cRow: Int = .zero
-        var y: Double = 0
+        var y: Double = .zero
         
         for attribute in attributes {
             if attribute.representedElementCategory != .cell { continue }
@@ -42,7 +42,7 @@ final class LeftAlignmentLayout: UICollectionViewFlowLayout {
             
             cRow += 1
             
-            if cRow > xRows.count - 1 {
+            if cRow > self.rowsCount - 1 {
                 cRow = .zero
                 y = attribute.frame.maxY
             }

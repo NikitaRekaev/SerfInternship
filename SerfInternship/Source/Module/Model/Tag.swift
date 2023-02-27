@@ -1,7 +1,7 @@
-//  TabModel.swift
+//  Tag.swift
 //  Nikita Rekaev 10.02.2023
 
-enum Tab {
+enum Tag {
     case ios
     case android
     case design
@@ -16,7 +16,7 @@ enum Tab {
 
 // MARK: - Localizble
 
-extension Tab: CaseIterable {
+extension Tag: CaseIterable {
     
     var title: String {
         switch self {
