@@ -1,25 +1,25 @@
 strings:
   inputs:
-    - SerfInternship/Resource/en.lproj
+    - SurfInternship/Resource/en.lproj
   outputs:
     - templateName: structured-swift5
-      output: SerfInternship/Resource/Store/Localizable.swift
+      output: SurfInternship/Resource/Store/Localizable.swift
       params:
          enumName: Localizable
 fonts:
   inputs:
-    - SerfInternship/Resource/Font
+    - SurfInternship/Resource/Font
   outputs:
     templateName: swift5
-    output: SerfInternship/Resource/Store/Fonts.swift
+    output: SurfInternship/Resource/Store/Fonts.swift
     params:
          enumName: Fonts
 xcassets:
   inputs:
-    - SerfInternship/Resource/Assets.xcassets
+    - SurfInternship/Resource/Assets.xcassets
   outputs:
     - templateName: swift5
       params:
          enumName: Assets
          forceProvidesNamespaces: true
-      output: SerfInternship/Resource/Store/Assets.swift
+      output: SurfInternship/Resource/Store/Assets.swift
