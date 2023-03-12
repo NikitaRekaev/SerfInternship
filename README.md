@@ -1,5 +1,5 @@
 <h1 align="center">SurfInternship</h1> 
-<h1 align="center">Test app for <a href="https://surf.ru">Serf</a> from the public <a href="https://github.com/surfstudio/Surf-iOS-Developers/blob/master/Docs/Hiring/students-test-project.md">gitHub</a> repository.</h1> 
+<h1 align="center">Test app for <a href="https://surf.ru">Surf</a> from the public <a href="https://github.com/surfstudio/Surf-iOS-Developers/blob/master/Docs/Hiring/students-test-project.md">gitHub</a> repository.</h1> 
 
 
 ## Technical Stack
